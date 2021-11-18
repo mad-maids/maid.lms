@@ -87,7 +87,7 @@ for module_link in module_links:
     name_span = browser.find_element(By.ID, value="spanModuleName")
     module_name = name_span.text.split(" - ")[-1]
 
-    logging.info(f"Getting materials for {module_name}")
+    logging.info(f"MODULE: {module_name}")
 
     # when the year is changed on one module page, it's changed on all pages
     # so first check the current academic year
@@ -165,6 +165,10 @@ for module_link in module_links:
             materials[file_name] = file_link
 
         data[section] = materials
+
+    # no links were found
+    if len(data.keys()) == 1:
+        continue
 
     # creating the relevant dir if it doesn't exit
     Path(f"./data").mkdir(parents=True, exist_ok=True)
