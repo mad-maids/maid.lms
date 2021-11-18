@@ -127,3 +127,10 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+# Node modules
+node_modules/
+
+# hidden file in macos
+.DS_Store
+
